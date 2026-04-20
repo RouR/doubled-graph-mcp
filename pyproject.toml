@@ -1,0 +1,85 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "doubled-graph"
+version = "1.0.1"
+description = "MCP facade over CodeGraphContext + grace-marketplace: impact, context, drift-detect for LLM-driven codebases."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "doubled-graph methodology authors" }]
+keywords = ["mcp", "llm", "graph", "ast", "codebase", "claude", "cursor", "continue"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Software Development :: Documentation",
+]
+dependencies = [
+    "mcp>=0.9.0",
+    "pydantic>=2.6",
+    "codegraphcontext>=0.1",
+    "anyio>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/rour/doubled-graph-mcp"
+Repository = "https://github.com/rour/doubled-graph-mcp"
+Issues = "https://github.com/rour/doubled-graph-mcp/issues"
+Documentation = "https://github.com/rour/doubled-graph-mcp/blob/main/SPEC.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+doubled-graph = "doubled_graph.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/doubled_graph"]
+
+# Bundle prompts/ and methodology/ from the repo root into the installed
+# package at `doubled_graph/data/`. Loaded via `importlib.resources` by
+# `doubled_graph.setup` so the onboarding command never needs the methodology
+# repo to be cloned separately.
+[tool.hatch.build.targets.wheel.force-include]
+"prompts" = "doubled_graph/data/prompts"
+"methodology" = "doubled_graph/data/methodology"
+"docs" = "doubled_graph/data/docs"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/doubled_graph",
+    "tests",
+    "prompts",
+    "methodology",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+[tool.hatch.build.targets.sdist.force-include]
+"prompts" = "prompts"
+"methodology" = "methodology"
+"docs" = "docs"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

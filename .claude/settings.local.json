@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.ts$\")",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://api.github.com/repos/CodeGraphContext/CodeGraphContext/commits?per_page=1)",
+      "Bash(find /Volumes/Transcend/sync/AI/Grace/research/CodeGraphContext-main -type f -name \"*.md\" -exec grep -l \"TODO\\\\|FIXME\\\\|limitation\\\\|issue\\\\|known\" {} \\\\;)",
+      "Bash(.venv/bin/python -c ' *)",
+      "Bash(PYTHONPATH=src .venv/bin/python -m pytest tests/ -v)",
+      "Bash(PYTHONPATH=src .venv/bin/python -m pytest tests/ -q)",
+      "Bash(find /Volumes/Transcend/sync/AI/Grace/prompts -name '*.md' -exec wc -c {} \\\\;)",
+      "Bash(python3 -)",
+      "Bash(xargs -0 sed -i '' 's/Grace-Authored/DG-Authored/g' echo \"=== verify ===\" grep -rn \"Grace-Authored\" --include='*.md' --include='*.py' methodology prompts for-humans for-ai-new-project for-ai-existing-project for-ai-maintenance src)",
+      "Bash(.venv/bin/python -m pytest tests/ -q)",
+      "Bash(.venv/bin/pip install *)",
+      "Bash(find prompts *)",
+      "Bash(.venv/bin/pip show *)",
+      "Bash(.venv/bin/python -c \"from doubled_graph import server; print\\('ok'\\); import inspect; print\\(inspect.getsourcefile\\(server\\)\\)\")",
+      "Bash(find /Volumes/Transcend/sync/AI/Grace/prompts -name \"*.md\" -exec wc -c {} +)",
+      "Bash(python -m pytest tests/ -x --tb=short)",
+      "Bash(python3 -m pytest tests/ -x --tb=short)",
+      "Bash(/Volumes/Transcend/sync/AI/Grace/.venv/bin/python -m pytest tests/ --tb=short)",
+      "Bash(.venv/bin/python -m pytest tests/ --tb=short)",
+      "Bash(.venv/bin/python -m pip show build hatchling)",
+      "Bash(.venv/bin/python -m build --wheel)",
+      "Bash(.venv/bin/python -m zipfile -l dist/doubled_graph-0.1.0-py3-none-any.whl)",
+      "Bash(.venv/bin/python -m pytest tests/ --tb=short)",
+      "Bash(gh repo *)",
+      "Bash(awk '{if \\($1 > 8192\\) print $0, \"OVER\"; else print $0, \"ok\"}')",
+      "Bash(git mv *)"
+    ]
+  }
+}
