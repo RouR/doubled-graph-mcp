@@ -2,7 +2,7 @@
 
 **MCP facade for LLM-driven codebases.** Four tools — `analyze`, `impact`, `context`, `detect_changes` — that combine a computed AST graph (via [CodeGraphContext](https://github.com/Shashankss1205/CodeGraphContext)) with a declared methodology graph (via [grace-marketplace](https://github.com/osovv/grace)) so your agent can reason about blast radius and drift before it edits code.
 
-License: MIT.
+
 
 ---
 
@@ -121,7 +121,7 @@ Then in your agent system prompt / `CLAUDE.md`:
 
 ## The four core tools — input/output shape
 
-Full schemas in [TOOLS.md](TOOLS.md). Summary:
+Full schemas in [TOOLS.md](docs/TOOLS.md). Summary:
 
 ```jsonc
 // impact
@@ -143,10 +143,10 @@ Risk levels: `NONE`, `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`. Any `HIGH`/`CRITICAL` 
 
 ## Layout
 
-- [SPEC.md](SPEC.md) — architecture, storage layout (`.doubled-graph/`), wire format
-- [TOOLS.md](TOOLS.md) — detailed tool spec (schemas, CGC mapping, use-cases)
-- [HOOKS.md](HOOKS.md) — git + Claude Code hook contracts
-- [CHANGELOG.md](CHANGELOG.md) — release notes
+- [SPEC.md](docs/SPEC.md) — architecture, storage layout (`.doubled-graph/`), wire format
+- [TOOLS.md](docs/TOOLS.md) — detailed tool spec (schemas, CGC mapping, use-cases)
+- [HOOKS.md](docs/HOOKS.md) — git + Claude Code hook contracts
+- [CHANGELOG.md](docs/CHANGELOG.md) — release notes
 
 ---
 
